@@ -13,7 +13,7 @@
   <!-- Basic Page Needs
   ================================================== -->
   <meta charset="utf-8">
-  <title>Novena- Health Care &amp; Medical template</title>
+  <title>Puskesmas Paal 5</title>
 
   <!-- Mobile Specific Metas
   ================================================== -->
@@ -27,7 +27,7 @@
   <meta name="theme-name" content="novena" />
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="{{ url('layoutswebsite', []) }}/images/favicon.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="{{ url('layoutswebsite', []) }}/images/Logo-Puskermas.jpg" />
 
   <!-- 
   Essential stylesheets
@@ -48,7 +48,7 @@
 	<nav class="navbar navbar-expand-lg navigation" id="navbar">
 		<div class="container">
 			<a class="navbar-brand" href="index.html">
-				<img src="images/logo.png" alt="" class="img-fluid">
+				<img src="{{ url('layoutswebsite', []) }}/images/Logo-Puskermas.jpg" alt="" class="size_image">
 			</a>
 
 			<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain"
@@ -58,56 +58,36 @@
 
 			<div class="collapse navbar-collapse" id="navbarmain">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-					<li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
-
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="department.html" id="dropdown02" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false">Department <i class="icofont-thin-down"></i></a>
-						<ul class="dropdown-menu" aria-labelledby="dropdown02">
-							<li><a class="dropdown-item" href="department.html">Departments</a></li>
-							<li><a class="dropdown-item" href="department-single.html">Department Single</a></li>
-                    
-							<li class="dropdown dropdown-submenu dropright">
-								<a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
-			
-								<ul class="dropdown-menu" aria-labelledby="dropdown0301">
-									<li><a class="dropdown-item" href="index.html">Submenu 01</a></li>
-									<li><a class="dropdown-item" href="index.html">Submenu 02</a></li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="doctor.html" id="dropdown03" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false">Doctors <i class="icofont-thin-down"></i></a>
-						<ul class="dropdown-menu" aria-labelledby="dropdown03">
-							<li><a class="dropdown-item" href="doctor.html">Doctors</a></li>
-							<li><a class="dropdown-item" href="doctor-single.html">Doctor Single</a></li>
-							<li><a class="dropdown-item" href="appoinment.html">Appoinment</a></li>
-
-							<li class="dropdown dropdown-submenu dropleft">
-								<a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0501" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
-			
-								<ul class="dropdown-menu" aria-labelledby="dropdown0501">
-									<li><a class="dropdown-item" href="index.html">Submenu 01</a></li>
-									<li><a class="dropdown-item" href="index.html">Submenu 02</a></li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="blog-sidebar.html" id="dropdown05" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false">Blog <i class="icofont-thin-down"></i></a>
-						<ul class="dropdown-menu" aria-labelledby="dropdown05">
-							<li><a class="dropdown-item" href="blog-sidebar.html">Blog with Sidebar</a></li>
-							<li><a class="dropdown-item" href="blog-single.html">Blog Single</a></li>
-						</ul>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+					@guest
+                            @if (Route::has('login'))
+							<li class="nav-item active"><a class="nav-link" href="index.html">Beranda</a></li>
+							<li class="nav-item"><a class="nav-link" href="about.html">Tentang</a></li>
+							<li class="nav-item"><a class="nav-link" href="service.html">Pelayanan</a></li>
+		
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="department.html" id="dropdown02" data-toggle="dropdown"
+									aria-haspopup="true" aria-expanded="false">Department <i class="icofont-thin-down"></i></a>
+									<ul class="dropdown-menu" aria-labelledby="dropdown02">
+										<li><a class="dropdown-item" href="department.html">Departments</a></li>
+										<li><a class="dropdown-item" href="department-single.html">Department Single</a></li>
+										
+										<li class="dropdown dropdown-submenu dropright">
+											<a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
+											
+											<ul class="dropdown-menu" aria-labelledby="dropdown0301">
+												<li><a class="dropdown-item" href="index.html">Submenu 01</a></li>
+												<li><a class="dropdown-item" href="index.html">Submenu 02</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li class="nav-item navbar-button">
+									<a href="/login" class="btn btn-main-2 btn-round-full">Login</a>
+								  </li>
+                            @endif
+                        
+                        @endguest
+					
 				</ul>
 			</div>
 		</div>
@@ -122,13 +102,10 @@
 			<div class="col-lg-6 col-md-12 col-xl-7">
 				<div class="block">
 					<div class="divider mb-3"></div>
-					<span class="text-uppercase text-sm letter-spacing ">Total Health care solution</span>
-					<h1 class="mb-3 mt-3">Your most trusted health partner</h1>
+					<span class="text-uppercase text-sm letter-spacing ">Solusi Layanan Kesehatan Terpadu</span>
+					<h1 class="mb-3 mt-3">Mitra Kesehatan Terpercaya Anda di Puskesmas</h1>
 					
-					<p class="mb-4 pr-5">A repudiandae ipsam labore ipsa voluptatum quidem quae laudantium quisquam aperiam maiores sunt fugit, deserunt rem suscipit placeat.</p>
-					<div class="btn-container ">
-						<a href="appoinment.html" target="_blank" class="btn btn-main-2 btn-icon btn-round-full">Make appoinment <i class="icofont-simple-right ml-2  "></i></a>
-					</div>
+					<p class="mb-4 pr-5">Memberikan pelayanan kesehatan yang menyeluruh dan berkualitas bagi seluruh lapisan masyarakat, dengan komitmen pada kepedulian, profesionalisme, dan integritas.</p>
 				</div>
 			</div>
 		</div>
@@ -178,29 +155,6 @@
 
 
 <section class="section about">
-	<div class="container">
-		<div class="row align-items-center">
-			<div class="col-lg-4 col-sm-6">
-				<div class="about-img">
-					<img src="images/about/img-1.jpg" alt="" class="img-fluid">
-					<img src="images/about/img-2.jpg" alt="" class="img-fluid mt-4">
-				</div>
-			</div>
-			<div class="col-lg-4 col-sm-6">
-				<div class="about-img mt-4 mt-lg-0">
-					<img src="images/about/img-3.jpg" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-4">
-				<div class="about-content pl-4 mt-4 mt-lg-0">
-					<h2 class="title-color">Personal care <br>& healthy living</h2>
-					<p class="mt-4 mb-5">We provide best leading medicle service Nulla perferendis veniam deleniti ipsum officia dolores repellat laudantium obcaecati neque.</p>
-
-					<a href="service.html" class="btn btn-main-2 btn-round-full btn-icon">Services<i class="icofont-simple-right ml-3"></i></a>
-				</div>
-			</div>
-		</div>
-	</div>
 </section>
 <section class="cta-section ">
 	<div class="container">
@@ -329,86 +283,7 @@
 		</div>
 	</div>
 </section>
-<section class="section appoinment">
-	<div class="container">
-		<div class="row align-items-center">
-			<div class="col-lg-6 ">
-				<div class="appoinment-content">
-					<img src="images/about/img-3.jpg" alt="" class="img-fluid">
-					<div class="emergency">
-						<h2 class="text-lg"><i class="icofont-phone-circle text-lg"></i>+23 345 67980</h2>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-6 col-md-10 ">
-				<div class="appoinment-wrap mt-5 mt-lg-0">
-					<h2 class="mb-2 title-color">Book appoinment</h2>
-					<p class="mb-4">Mollitia dicta commodi est recusandae iste, natus eum asperiores corrupti qui velit . Iste dolorum atque similique praesentium soluta.</p>
-					     <form id="#" class="appoinment-form" method="post" action="#">
-                    <div class="row">
-                         <div class="col-lg-6">
-                            <div class="form-group">
-                                <select class="form-control" id="exampleFormControlSelect1">
-                                  <option>Choose Department</option>
-                                  <option>Software Design</option>
-                                  <option>Development cycle</option>
-                                  <option>Software Development</option>
-                                  <option>Maintenance</option>
-                                  <option>Process Query</option>
-                                  <option>Cost and Duration</option>
-                                  <option>Modal Delivery</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <select class="form-control" id="exampleFormControlSelect2">
-                                  <option>Select Doctors</option>
-                                  <option>Software Design</option>
-                                  <option>Development cycle</option>
-                                  <option>Software Development</option>
-                                  <option>Maintenance</option>
-                                  <option>Process Query</option>
-                                  <option>Cost and Duration</option>
-                                  <option>Modal Delivery</option>
-                                </select>
-                            </div>
-                        </div>
 
-                         <div class="col-lg-6">
-                            <div class="form-group">
-                                <input name="date" id="date" type="text" class="form-control" placeholder="dd/mm/yyyy">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <input name="time" id="time" type="text" class="form-control" placeholder="Time">
-                            </div>
-                        </div>
-                         <div class="col-lg-6">
-                            <div class="form-group">
-                                <input name="name" id="name" type="text" class="form-control" placeholder="Full Name">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <input name="phone" id="phone" type="Number" class="form-control" placeholder="Phone Number">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group-2 mb-4">
-                        <textarea name="message" id="message" class="form-control" rows="6" placeholder="Your Message"></textarea>
-                    </div>
-
-                    <a class="btn btn-main btn-round-full" href="appoinment.html" >Make Appoinment <i class="icofont-simple-right ml-2  "></i></a>
-                </form>
-            </div>
-			</div>
-		</div>
-	</div>
-</section>
 <section class="section testimonial-2 gray-bg">
 	<div class="container">
 		<div class="row justify-content-center">
@@ -429,7 +304,7 @@
 					<i class="icofont-quote-right"></i>
 
 					<div class="testimonial-thumb">
-						<img src="images/team/test-thumb1.jpg" alt="" class="img-fluid">
+						<img src="{{ url('layoutswebsite', []) }}/images/team/test-thumb1.jpg" alt="" class="img-fluid">
 					</div>
 
 					<div class="client-info ">
@@ -443,7 +318,7 @@
 
 				<div class="testimonial-block style-2  gray-bg">
 					<div class="testimonial-thumb">
-						<img src="images/team/test-thumb2.jpg" alt="" class="img-fluid">
+						<img src="{{ url('layoutswebsite', []) }}/images/team/test-thumb2.jpg" alt="" class="img-fluid">
 					</div>
 
 					<div class="client-info">
@@ -459,7 +334,7 @@
 
 				<div class="testimonial-block style-2  gray-bg">
 					<div class="testimonial-thumb">
-						<img src="images/team/test-thumb3.jpg" alt="" class="img-fluid">
+						<img src="{{ url('layoutswebsite', []) }}/images/team/test-thumb3.jpg" alt="" class="img-fluid">
 					</div>
 
 					<div class="client-info">
@@ -475,7 +350,7 @@
 
 				<div class="testimonial-block style-2  gray-bg">
 					<div class="testimonial-thumb">
-						<img src="images/team/test-thumb4.jpg" alt="" class="img-fluid">
+						<img src="{{ url('layoutswebsite', []) }}/images/team/test-thumb4.jpg" alt="" class="img-fluid">
 					</div>
 
 					<div class="client-info">
@@ -490,7 +365,7 @@
 
 				<div class="testimonial-block style-2  gray-bg">
 					<div class="testimonial-thumb">
-						<img src="images/team/test-thumb1.jpg" alt="" class="img-fluid">
+						<img src="{{ url('layoutswebsite', []) }}/images/team/test-thumb1.jpg" alt="" class="img-fluid">
 					</div>
 
 					<div class="client-info">
@@ -523,65 +398,65 @@
 		<div class="row clients-logo">
 			<div class="col-lg-2">
 				<div class="client-thumb">
-					<img src="images/about/1.png" alt="" class="img-fluid">
+					<img src="{{ url('layoutswebsite', []) }}/images/about/1.png" alt="" class="img-fluid">
 				</div>
 			</div>
 			<div class="col-lg-2">
 				<div class="client-thumb">
-					<img src="images/about/2.png" alt="" class="img-fluid">
+					<img src="{{ url('layoutswebsite', []) }}/images/about/2.png" alt="" class="img-fluid">
 				</div>
 			</div>
 			<div class="col-lg-2">
 				<div class="client-thumb">
-					<img src="images/about/3.png" alt="" class="img-fluid">
+					<img src="{{ url('layoutswebsite', []) }}/images/about/3.png" alt="" class="img-fluid">
 				</div>
 			</div>
 			<div class="col-lg-2">
 				<div class="client-thumb">
-					<img src="images/about/4.png" alt="" class="img-fluid">
+					<img src="{{ url('layoutswebsite', []) }}/images/about/4.png" alt="" class="img-fluid">
 				</div>
 			</div>
 			<div class="col-lg-2">
 				<div class="client-thumb">
-					<img src="images/about/5.png" alt="" class="img-fluid">
+					<img src="{{ url('layoutswebsite', []) }}/images/about/5.png" alt="" class="img-fluid">
 				</div>
 			</div>
 			<div class="col-lg-2">
 				<div class="client-thumb">
-					<img src="images/about/6.png" alt="" class="img-fluid">
+					<img src="{{ url('layoutswebsite', []) }}/images/about/6.png" alt="" class="img-fluid">
 				</div>
 			</div>
 			<div class="col-lg-2">
 				<div class="client-thumb">
-					<img src="images/about/3.png" alt="" class="img-fluid">
+					<img src="{{ url('layoutswebsite', []) }}/images/about/3.png" alt="" class="img-fluid">
 				</div>
 			</div>
 			<div class="col-lg-2">
 				<div class="client-thumb">
-					<img src="images/about/4.png" alt="" class="img-fluid">
+					<img src="{{ url('layoutswebsite', []) }}/images/about/4.png" alt="" class="img-fluid">
 				</div>
 			</div>
 			<div class="col-lg-2">
 				<div class="client-thumb">
-					<img src="images/about/5.png" alt="" class="img-fluid">
+					<img src="{{ url('layoutswebsite', []) }}/images/about/5.png" alt="" class="img-fluid">
 				</div>
 			</div>
 			<div class="col-lg-2">
 				<div class="client-thumb">
-					<img src="images/about/6.png" alt="" class="img-fluid">
+					<img src="{{ url('layoutswebsite', []) }}/images/about/6.png" alt="" class="img-fluid">
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
 <!-- footer Start -->
-<footer class="footer section gray-bg">
+<footer class="footer-welcome section gray-bg">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-4 mr-auto col-sm-6">
 				<div class="widget mb-5 mb-lg-0">
 					<div class="logo mb-4">
-						<img src="images/logo.png" alt="" class="img-fluid">
+						<img src="{{ url('layoutswebsite', []) }}/images/Logo-Puskermas.jpg" alt="" class="img-fluid">
 					</div>
 					<p>Tempora dolorem voluptatum nam vero assumenda voluptate, facilis ad eos obcaecati tenetur veritatis eveniet distinctio possimus.</p>
 
@@ -686,16 +561,16 @@
     <!-- 
     Essential Scripts
     =====================================-->
-    <script src="plugins/jquery/jquery.js"></script>
-    <script src="plugins/bootstrap/bootstrap.min.js"></script>
-    <script src="plugins/slick-carousel/slick/slick.min.js"></script>
-    <script src="plugins/shuffle/shuffle.min.js"></script>
+    <script src="{{ url('layoutswebsite', []) }}/plugins/jquery/jquery.js"></script>
+    <script src="{{ url('layoutswebsite', []) }}/plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="{{ url('layoutswebsite', []) }}/plugins/slick-carousel/slick/slick.min.js"></script>
+    <script src="{{ url('layoutswebsite', []) }}/plugins/shuffle/shuffle.min.js"></script>
 
     <!-- Google Map -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA"></script>
-    <script src="plugins/google-map/gmap.js"></script>
+    <script src="{{ url('layoutswebsite', []) }}/plugins/google-map/gmap.js"></script>
     
-    <script src="js/script.js"></script>
+    <script src="{{ url('layoutswebsite', []) }}/js/script.js"></script>
 
   </body>
   </html>

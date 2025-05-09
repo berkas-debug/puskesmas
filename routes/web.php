@@ -14,9 +14,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    if (Auth::check()) {
+        return redirect('/home');
+    }
+    return view('index_pembuka');
+});
+
+Route::get('/tidak-ada', function () {
+    return view('errors.404');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware(['auth', 'role:dokter'])->group(function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
+
