@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 09 Bulan Mei 2025 pada 04.59
+-- Waktu pembuatan: 13 Bulan Mei 2025 pada 16.54
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -113,6 +113,7 @@ CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `role` varchar(20) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
@@ -124,8 +125,9 @@ CREATE TABLE `users` (
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Petugas 1', 'ptg@mail.com', NULL, '$2y$12$aYpo4qjWkoZBca1.VmzUwubm3Ag3QnQilEJhy2Kpnn8Y7ys6jm/Ja', NULL, '2025-05-08 06:25:22', '2025-05-08 06:25:22');
+INSERT INTO `users` (`id`, `name`, `email`, `role`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(3, 'Pasien', 'pasien@gmail.com', 'pasien', NULL, '$2y$12$a/xToZNyrZUgiGNC9B9RVuVIvNwlBb./WpFNbhkbwfHfofcV4cu0W', NULL, '2025-05-13 07:32:18', '2025-05-13 07:32:18'),
+(4, 'Dokter', 'dokter@gmail.com', 'dokter', NULL, '$2y$12$.Bu6dgPH1fDxNJmfa0qW1e/Z33lOEua8.Cw4wLSk2vXCs2N2n1xFG', NULL, '2025-05-13 07:53:26', '2025-05-13 07:53:26');
 
 --
 -- Indexes for dumped tables
@@ -197,7 +199,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
