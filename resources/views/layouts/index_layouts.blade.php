@@ -39,6 +39,7 @@
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="{{ url('layoutswebsite', []) }}/css/style.css">
+  {{-- <link rel="stylesheet" href="{{ url('layoutswebsite', []) }}/css/loginstyle.css"> --}}
 
 </head>
 
@@ -62,16 +63,25 @@
 						
 						
 						@guest
-                            @if (Route::has('login'))
+                            @if (Route::has('login-dokter') && !request()->routeIs('login-pasien','register-pasien','visi-misi','informasi'))
 								<li class="nav-item"><a class="nav-link" href="/">Beranda</a></li>
-								<li class="nav-item navbar-button">
-									<a href="/register" class="btn btn-main-2 btn-round-full">Register</a>
-								</li>
+                                @endif
+                                @if (Route::has('login-pasien') && !request()->routeIs('login-dokter','register-pasien','visi-misi','informasi'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/">Beranda</a>
+                                </li>
+                                <li class="nav-item navbar-button">
+                                    <a href="/register-pasien" class="btn btn-main-2 btn-round-full">Daftar</a>
+                                </li>
                             @endif
+                            @if (Route::has('register-pasien') && !request()->routeIs('register-pasien ','login-dokter','login-pasien'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/">Beranda</a>
+                                </li>
+                                @endif
                         @else
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="department.html" id="dropdown02" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false">Department <i class="icofont-thin-down"></i></a>
+						    {{-- <li class="nav-item dropdown">
+							    <a class="nav-link dropdown-toggle" href="department.html" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Department <i class="icofont-thin-down"></i></a>
 								<ul class="dropdown-menu" aria-labelledby="dropdown02">
 									<li><a class="dropdown-item" href="department.html">Departments</a></li>
 									<li><a class="dropdown-item" href="department-single.html">Department Single</a></li>
@@ -85,7 +95,7 @@
 										</ul>
 									</li>
 								</ul>
-							</li>
+							</li> --}}
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -111,7 +121,7 @@
 </header>
 
 
-<section class="section about">
+<section class="about">
 	@yield('content')
 </section>
 <!-- footer Start -->
