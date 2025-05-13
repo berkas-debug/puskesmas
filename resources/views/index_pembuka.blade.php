@@ -61,29 +61,22 @@
 					@guest
                             @if (Route::has('login'))
 							<li class="nav-item active"><a class="nav-link" href="index.html">Beranda</a></li>
-							<li class="nav-item"><a class="nav-link" href="about.html">Tentang</a></li>
-							<li class="nav-item"><a class="nav-link" href="service.html">Pelayanan</a></li>
+							<li class="nav-item"><a class="nav-link" href="/visi-misi">Visi Dan Misi</a></li>
+							<li class="nav-item"><a class="nav-link" href="/informasi">Informasi</a></li>
 		
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="department.html" id="dropdown02" data-toggle="dropdown"
-									aria-haspopup="true" aria-expanded="false">Department <i class="icofont-thin-down"></i></a>
+									aria-haspopup="true" aria-expanded="false">Login<i class="icofont-thin-down"></i></a>
 									<ul class="dropdown-menu" aria-labelledby="dropdown02">
-										<li><a class="dropdown-item" href="department.html">Departments</a></li>
-										<li><a class="dropdown-item" href="department-single.html">Department Single</a></li>
-										
-										<li class="dropdown dropdown-submenu dropright">
-											<a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
-											
-											<ul class="dropdown-menu" aria-labelledby="dropdown0301">
-												<li><a class="dropdown-item" href="index.html">Submenu 01</a></li>
-												<li><a class="dropdown-item" href="index.html">Submenu 02</a></li>
-											</ul>
-										</li>
+										<li class="nav-item navbar-button">
+											<a href="/login-dokter" class="btn btn-main-2 btn-round-full">Login Dokter</a>
+										  </li>
+										<li class="nav-item navbar-button">
+											<a href="/login-pasien" class="btn btn-main-2 btn-round-full">Login Pasien</a>
+										  </li>
 									</ul>
 								</li>
-								<li class="nav-item navbar-button">
-									<a href="/login" class="btn btn-main-2 btn-round-full">Login</a>
-								  </li>
+								
                             @endif
                         
                         @endguest
